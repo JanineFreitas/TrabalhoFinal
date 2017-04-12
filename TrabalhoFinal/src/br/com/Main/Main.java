@@ -8,8 +8,8 @@ import br.com.model.Product;
 public class Main {
 
 	public static void main(String[] args) {
-		iniciarList();
-		inicarSet();
+//		iniciarList();
+//		inicarSet();
 		inicarMap();
 	}
 	
