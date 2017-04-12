@@ -1,6 +1,6 @@
 package br.com.model;
 
-public class Product {
+public class Product implements Comparable<Product>{
 	private Integer id;
 	private String name;
 	private Double price;
@@ -29,4 +29,17 @@ public class Product {
 	public void setPrice(Double price) {
 		this.price = price;
 	}
+
+//	public int compare(Product o1, Product o2) {
+//		return o1.getName().compareTo(o2.getName());
+//	}
+	
+	public int compareTo(Product o) {
+		if(this.getName().compareTo(o.getName()) > 0){
+			return 0;
+		} else {
+			return -1;
+		}
+	}
+	
 }

@@ -1,16 +1,19 @@
 package br.com.classes;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 import br.com.interfacee.ShoppingCart;
 import br.com.model.Item;
 import br.com.model.Product;
 
-public class ShoppingCartSet implements ShoppingCart{
-	
+public class ShoppingCartSet implements ShoppingCart {
+
 	private Set<Item> setItens = new HashSet<Item>();
 
 	@Override
@@ -22,7 +25,17 @@ public class ShoppingCartSet implements ShoppingCart{
 
 	@Override
 	public Collection<Product> getProductsOrderByNameAsc() {
-		return null;
+		List<Product> produtos = new ArrayList<>();
+		for (Item item : setItens) {
+			produtos.add(item.getProduct());
+		}
+//		Collections.sort(produtos, new Comparator<Product>() {
+//			public int compare(Product o1, Product o2) {
+//				return o1.getName().compareTo(o2.getName());
+//			}
+//		});
+		Collections.sort(produtos);
+		return produtos;
 	}
 
 	@Override
@@ -33,13 +46,13 @@ public class ShoppingCartSet implements ShoppingCart{
 	@Override
 	public void removeItemByProductId(Integer productId) {
 		for (Item item : setItens) {
-			if(productId.equals(item.getProduct().getId().intValue())){
+			if (productId.equals(item.getProduct().getId().intValue())) {
 				setItens.remove(item.getProduct());
-				System.out.println("Removeu item "+productId);
+				System.out.println("Removeu item " + productId);
 				break;
 			}
 		}
-		
+
 	}
 
 	@Override

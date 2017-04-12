@@ -1,8 +1,11 @@
 package br.com.classes;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 import br.com.interfacee.ShoppingCart;
@@ -24,9 +27,21 @@ public class ShoppingCartMap implements ShoppingCart{
 		return listItens.put(key, item);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public Collection<Product> getProductsOrderByNameAsc() {
-		return null;
+		@SuppressWarnings("rawtypes")
+		List produtos = new ArrayList<Product>();
+		for (Integer key : listItens.keySet()) {
+			produtos.add(listItens.get(key).getProduct());
+		}
+//		Collections.sort(produtos, new Comparator<Product>() {
+//			public int compare(Product o1, Product o2) {
+//				return o1.getName().compareTo(o2.getName());
+//			}
+//		});
+		Collections.sort(produtos);
+		return produtos;
 	}
 
 	@Override

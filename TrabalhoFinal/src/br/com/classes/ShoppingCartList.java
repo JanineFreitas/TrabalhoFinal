@@ -2,6 +2,7 @@ package br.com.classes;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -22,7 +23,17 @@ public class ShoppingCartList implements ShoppingCart{
 
 	@Override
 	public Collection<Product> getProductsOrderByNameAsc() {
-		return null;
+		List<Product> produtos = new ArrayList<>();
+		for (Item item : listItens) {
+			produtos.add(item.getProduct());
+		}
+//		 Collections.sort(produtos, new Comparator<Product>() {
+//	            public int compare(Product o1, Product o2) {
+//	                return o1.getName().compareTo(o2.getName());
+//	            }
+//	     });
+		Collections.sort(produtos);
+		return produtos;
 	}
 
 	@Override
