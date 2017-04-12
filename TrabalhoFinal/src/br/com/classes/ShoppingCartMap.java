@@ -16,10 +16,6 @@ public class ShoppingCartMap implements ShoppingCart{
 	private Integer key = 0;
 	private Map<Integer, Item> listItens = new HashMap<>();
 
-	public ShoppingCartMap() {
-		super();
-	}
-
 	@Override
 	public Item addItem(Product product, Integer amount) {
 		Item item = new Item(product, amount);
@@ -35,11 +31,6 @@ public class ShoppingCartMap implements ShoppingCart{
 		for (Integer key : listItens.keySet()) {
 			produtos.add(listItens.get(key).getProduct());
 		}
-//		Collections.sort(produtos, new Comparator<Product>() {
-//			public int compare(Product o1, Product o2) {
-//				return o1.getName().compareTo(o2.getName());
-//			}
-//		});
 		Collections.sort(produtos);
 		return produtos;
 	}

@@ -27,11 +27,6 @@ public class ShoppingCartList implements ShoppingCart{
 		for (Item item : listItens) {
 			produtos.add(item.getProduct());
 		}
-//		 Collections.sort(produtos, new Comparator<Product>() {
-//	            public int compare(Product o1, Product o2) {
-//	                return o1.getName().compareTo(o2.getName());
-//	            }
-//	     });
 		Collections.sort(produtos);
 		return produtos;
 	}
